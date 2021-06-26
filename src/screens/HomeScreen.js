@@ -1,13 +1,13 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+
 
 const HomeScreen = ({ navigation, route }) => {
   console.log("ROUTE: ", route);
   return (
     <View style={styles.mainView}>
-      <Text>Movies</Text>
-      <Button
-        title="Star Wars"
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => {
           navigation.navigate("Details", {
             movie: {
@@ -18,9 +18,13 @@ const HomeScreen = ({ navigation, route }) => {
             },
           });
         }}
-      />
-      <Button
-        title="Black Panther"
+      >
+        <View>
+          <Text style={styles.buttonText}>Star Wars</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => {
           navigation.navigate("Details", {
             movie: {
@@ -31,9 +35,13 @@ const HomeScreen = ({ navigation, route }) => {
             },
           });
         }}
-      />
-      <Button
-        title="The Matrix"
+      >
+        <View>
+          <Text style={styles.buttonText}>Black Panther</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => {
           navigation.navigate("Details", {
             movie: {
@@ -44,7 +52,11 @@ const HomeScreen = ({ navigation, route }) => {
             },
           });
         }}
-      />
+      >
+        <View>
+          <Text style={styles.buttonText}>The Matrix</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -56,6 +68,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  button: {
+    marginBottom: 30,
+    width: 150,
+    height: 50,
+    alignItems: "center",
+    backgroundColor: "rebeccapurple",
+    borderRadius: 10,
+    justifyContent: 'center'
+  },
+  buttonText: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: 'white'
+  }
 });
 
 export default HomeScreen;
